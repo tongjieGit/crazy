@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			background-color: #000000;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			position:absolute;
+			border-radius: 50px;
+			background-color: pink;
+			text-align: center;
+			line-height: 100px;
+		}
+		#oDiv1{background-color: #62df88;}
+		#oDiv2{background-color: #234567;}
+		#oDiv3{background-color: #7f2509;}
+		#oDiv4{background-color: #90ff34;}
+		#oDiv5{background-color: #232323;}
+		#oDiv6{background-color: #128900;}
+		#oDiv7{background-color: #f65279;}
+	</style>
+</head>
+<body>
+<div id="oDiv1" >开心</div>
+<div id="oDiv2" >爆炸</div>
+<div id="oDiv3" >没法子</div>
+<div id="oDiv4" >瓦屋哦</div>
+<div id="oDiv5" >天气真好</div>
+<div id="oDiv6" >吃吃吃</div>
+<div id="oDiv7" >撞车啦</div>
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	var oDiv1 = new Drag("oDiv1");
+	oDiv1.init();
+	var oDiv2 = new Drag("oDiv2");
+	oDiv2.init();
+	var oDiv3 = new Drag("oDiv3");
+	oDiv3.init();
+	var oDiv4 = new Drag("oDiv4");
+	oDiv4.init();
+	var oDiv5 = new Drag("oDiv5");
+	oDiv5.init();
+	var oDiv6 = new Drag("oDiv6");
+	oDiv6.init();
+	var oDiv7 = new Drag("oDiv7");
+	oDiv7.init();
+}
+
+function Drag(id){
+	this.oDiv = document.getElementById(id);
+	this.disX = 0;
+	this.disY = 0;
+}
+
+Drag.prototype.init = function(){
+	var This = this;
+	setInterval(function(){
+		This.changePosition();
+	},500)
+	return false;
+}
+
+Drag.prototype.changePosition = function(){
+	var This = this;	
+	this.disX = Math.random(0,1)*1280;
+	this.disY = Math.random(0,1)*720;
+	this.oDiv.style.left = this.disX + "px";
+    this.oDiv.style.top =this.disY+ "px";
+	return false;
+}
+
+Drag.prototype.again = function(){
+if (this.num >= 99) {
+		clearTimeout(this.tgo);
+		console.log(this.tgo)
+	}else{
+		// var This = this;
+		var That = this;
+		this.num += 10;
+		this.oDiv.style.left = this.disX*(this.num/100) + "px";
+	    this.oDiv.style.top =this.disY*(this.num/100) + "px";
+	    // this.tgo =  setInterval(function(){
+	    	That.changePosition(this.num)
+	    // },500)
+	    
+	    // this.tgo = setTimeout("this.changePosition("+this.num+")",500);
+	    console.log(this.num)	
+	}
+}
+</script>
+</html>
