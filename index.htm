@@ -36,20 +36,24 @@
 </body>
 <script type="text/javascript">
 window.onload = function(){
-	var oDiv1 = new Drag("oDiv1");
-	oDiv1.init();
-	var oDiv2 = new Drag("oDiv2");
-	oDiv2.init();
-	var oDiv3 = new Drag("oDiv3");
-	oDiv3.init();
-	var oDiv4 = new Drag("oDiv4");
-	oDiv4.init();
-	var oDiv5 = new Drag("oDiv5");
-	oDiv5.init();
-	var oDiv6 = new Drag("oDiv6");
-	oDiv6.init();
-	var oDiv7 = new Drag("oDiv7");
-	oDiv7.init();
+	for (var i = 1; i < 8; i++) {
+		var oDiv = new Drag("oDiv"+i);
+		oDiv.init();
+	}
+	// var oDiv1 = new Drag("oDiv1");
+	// oDiv1.init();
+	// var oDiv2 = new Drag("oDiv2");
+	// oDiv2.init();
+	// var oDiv3 = new Drag("oDiv3");
+	// oDiv3.init();
+	// var oDiv4 = new Drag("oDiv4");
+	// oDiv4.init();
+	// var oDiv5 = new Drag("oDiv5");
+	// oDiv5.init();
+	// var oDiv6 = new Drag("oDiv6");
+	// oDiv6.init();
+	// var oDiv7 = new Drag("oDiv7");
+	// oDiv7.init();
 }
 
 function Drag(id){
